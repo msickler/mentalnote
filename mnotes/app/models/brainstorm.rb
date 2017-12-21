@@ -1,0 +1,2 @@
+class Brainstorm < ApplicationRecord
+end
