@@ -1,17 +1,75 @@
-<h1><%= @user.username %>'s mind</h1>
-<h4>Journal entries</h4>
-<% @user.journals.each do |journal| %>
-<li><%= journal.entry %></li>
-  <% end %>
-<h4>Bucketlists</h4>
-<% @user.bucketlists.each do |b| %>
-<li><%= b.item %> - <%= b.category %> </li>
-<% end %>
-<h4>Notes</h4>
-<% @user.notes.each do |n| %>
-  <li> <%= n.note %> </li>
-<% end %>
-<h4>Brainstorming</h4>
-<% @user.brainstorms.each do |b| %>
-  <li> <%= b.idea %> - <%= b.category %> </li>
-<% end %>
+<div class="aimage">
+  <img src="http://i.imgur.com/WEIyhfC.png"/>
+</div>
+  <div class="abox">
+    <div class="adetails">
+      <b style="margin-right:5px;">Self</b> <%= @user.username %>
+    </div>
+    <div class="acontent">
+      Bio: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam nisi lorem, pulvinar id, commodo feugiat, vehicula et, mauris. Aliquam mattis porta urna. Maecenas dui neque, rhoncus sed, vehicula vitae, auctor at, nisi. Aenean id massa ut lacus molestie porta. Curabitur sit amet quam id libero suscipit venenatis.
+    </div>
+  </div>
+</div>
+
+<div id="box" style="border:1px solid #eeeeee;width:248px;">
+  <div class="fbox">
+    <p class="fquestion">
+      <%= link_to "+", new_note_path, :class => 'links' %>
+      Notes
+    </p>
+    <ul class="fanswer">
+      <% @user.notes.each do |n| %>
+      <li> <%= n.note %> </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="fbox">
+    <p class="fquestion">
+      <%= link_to "+", new_bucketlist_path, :class => 'links' %>
+      Bucketlist
+    </p>
+    <ul class="fanswer">
+      <% @user.bucketlists.each do |b| %>
+      <li><%= b.item %> - <%= b.category %> </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="fbox">
+    <p class="fquestion">
+      <%= link_to "+", new_brainstorm_path, :class => 'links' %>
+      Brainstorms
+    </p>
+    <ul class="fanswer">
+      <% @user.brainstorms.each do |b| %>
+        <li> <%= b.idea %> - <%= b.category %> </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div id="box">
+  <div class="ucontent">
+    <p class="fquestion"> Journal entries </p>
+    <ul class="updates">
+      <% @user.journals.each do |journal| %>
+      <b style="margin-right:5px;"><%= journal.created_at %></b>
+       <li><%= journal.entry %></li>
+       <% end %>
+    </ul>
+  </div>
+ </div>
+
+<div id="box" style="background:transparent;">
+  <p class="ntitle">More Links</p>
+  <div class="nlinks">
+    <a href="/">Link One</a>
+    <a href="/">Link Two</a>
+    <a href="/">Link Three</a>
+    <a href="/">Link Four</a>
+    <a href="/">Link Five</a>
+    <a href="/">Link Six</a>
+    <a href="/">Link Seven</a>
+  </div>
+</div>
+
+</div>
