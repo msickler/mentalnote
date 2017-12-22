@@ -1,4 +1,5 @@
 class User < ApplicationRecord
-  validates :username, :password, :email, presence: true
+  validates :username, :email, presence: true
   validates :username, :email, uniqueness: true
+  has_many :journals
 end
