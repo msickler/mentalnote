@@ -12,7 +12,7 @@ class JournalsController < ApplicationController
     @journal = Journal.new(journal_params)
     @journal.user_id = current_user.id
     if @journal.save
-      redirect_to journal_path(@journal)
+      redirect_to user_path(current_user)
     else
       render :new
     end

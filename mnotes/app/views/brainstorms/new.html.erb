@@ -1,0 +1,8 @@
+<%= form_for @brainstorm do |f| %>
+  <%= f.label :idea %>
+  <%= f.text_field :idea %>
+  <%= f.label :category %>
+  <%= f.select :category, [['Entrepreneur'], ['Music'], ['Literature'], ['Cinema'], ['Cuisine'], ['Personal']] %>
+  <%= hidden_field_tag "user_id", @user_id %>
+  <%= f.submit "submit" %>
+<% end %>

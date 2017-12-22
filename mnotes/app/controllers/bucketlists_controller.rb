@@ -12,7 +12,7 @@ class BucketlistsController < ApplicationController
     @bucketlist = Bucketlist.new(bucketlist_params)
     @bucketlist.user_id = current_user.id
     if @bucketlist.save
-      redirect_to bucketlist_path(@bucketlist)
+      redirect_to user_path(current_user)
     else
       render :new
     end

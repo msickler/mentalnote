@@ -2,7 +2,7 @@
   <%= f.label :item %>
   <%= f.text_field :item %>
   <%= f.label :category %>
-  <%= f.select :category, [['Adventurous'], ['Romantic'], ['Intellectual']] %>
+  <%= f.select :category, [['Travel'], ['Goal'], ['Dream'], ['Misc']] %>
   <%= hidden_field_tag "user_id", @user_id %>
   <%= f.submit "submit" %>
 <% end %>

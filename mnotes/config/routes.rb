@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :journals
   resources :sessions
   resources :bucketlists
+  resources :notes
+  resources :brainstorms
 
   resources :users, only: [:show] do
     resources :journals

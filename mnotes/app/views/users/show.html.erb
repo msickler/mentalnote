@@ -6,4 +6,12 @@
 <h4>Bucketlists</h4>
 <% @user.bucketlists.each do |b| %>
 <li><%= b.item %> - <%= b.category %> </li>
-<% end %> 
+<% end %>
+<h4>Notes</h4>
+<% @user.notes.each do |n| %>
+  <li> <%= n.note %> </li>
+<% end %>
+<h4>Brainstorming</h4>
+<% @user.brainstorms.each do |b| %>
+  <li> <%= b.idea %> - <%= b.category %> </li>
+<% end %>

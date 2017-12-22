@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171221162330) do
+ActiveRecord::Schema.define(version: 20171222042351) do
 
   create_table "brainstorms", force: :cascade do |t|
     t.string "idea"
     t.integer "user_id"
-    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category"
   end
 
   create_table "bucketlists", force: :cascade do |t|

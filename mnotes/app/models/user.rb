@@ -3,4 +3,6 @@ class User < ApplicationRecord
   validates :username, :email, uniqueness: true
   has_many :journals
   has_many :bucketlists
+  has_many :notes
+  has_many :brainstorms
 end
