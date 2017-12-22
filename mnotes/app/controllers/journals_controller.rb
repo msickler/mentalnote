@@ -12,10 +12,8 @@ class JournalsController < ApplicationController
     @journal = Journal.new(journal_params)
     @journal.user_id = current_user.id
     if @journal.save
-      binding.pry
       redirect_to journal_path(@journal)
     else
-      binding.pry
       render :new
     end
   end

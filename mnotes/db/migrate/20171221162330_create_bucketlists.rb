@@ -3,7 +3,7 @@ class CreateBucketlists < ActiveRecord::Migration[5.1]
     create_table :bucketlists do |t|
       t.string :item
       t.integer :user_id
-      t.string :type
+      t.string :category
       t.datetime :created_at, null: false
       t.datetime :updated_at, null: false
     end
