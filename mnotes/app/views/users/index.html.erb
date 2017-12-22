@@ -1,5 +1,16 @@
-<ul>
 <% @users.each do |user| %>
-  <li><%= user.username %></li>
+<div id="box">
+  <div class="aimage">
+  <img src="http://i.imgur.com/WEIyhfC.png"/>
+</div>
+  <div class="abox">
+    <div class="adetails">
+      <b style="margin-right:5px;"><%= user.username %>'s</b>
+      Cloud
+    </div>
+    <p class="acontent">
+      Bio: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam nisi lorem, pulvinar id, commodo feugiat, vehicula et, mauris.
+    </p>
+  </div>
+</div>
 <% end %>
-</ul>

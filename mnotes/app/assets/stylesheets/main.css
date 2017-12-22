@@ -1,10 +1,7 @@
 .titles{
-    position:relative;
-    width:50%;
-    min-height:50px;
-    height:auto;
-    padding-top:30px;
-    padding-left:30px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
     font:bold 30px 'Space Mono', monospace;
     line-height:22px;
     z-index:9999999;
@@ -21,13 +18,68 @@
   text-decoration: none;
 }
 
+#home-header {
+    position:fixed;
+    top: 0px;
+    background:url('https://images.unsplash.com/photo-1479981280584-037818c1297d?auto=format&fit=crop&w=1500&q=80') center no-repeat fixed;
+    background-size:cover;
+    width:100%;
+    height:200px;
+    padding-top:100px;
+    text-align: center;
+    font:bold 6em 'Space Mono', monospace;
+    line-height:22px;
+    text-transform:lowercase;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.n-links{
+    position:fixed;
+    margin-top:-10px;
+    margin-left:30px;
+    font-size:14px;
+    letter-spacing:2px;
+    z-index:99999999;
+    float:left;
+}
+
+.n-links a{
+    background:black;
+    color:white;
+    font-size:14px;
+    text-decoration: none;
+    margin-left:-5px;
+    padding:20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.n-links a:hover{
+    background:white;
+    color:#cbedef;
+    text-decoration: none;
+}
+
+.sticky{
+      position:fixed;
+      top:195px;
+  }
+
 .tiny-button {
   background: transparent !important;
   border-radius: 0 !important;
 }
 
 .plus {
-  margin-left: 60px; 
+  margin-left: 60px;
 }
 
 #s-m-t-tooltip {
@@ -121,7 +173,7 @@ padding-bottom:40px;
 padding-top:40px;
 position:fixed;
 width:100%;
-z-index:1;
+z-index:99999;
 }
 
 .title {
@@ -173,14 +225,25 @@ width:810px;
 
 #box {
 background:#ffffff;
-float:left;
+float:left !important;
 width:250px;
 margin:10px;
+}
+
+#big {
+  background:#ffffff;
+  width:700px;
+  margin:auto;
+  margin-top:300px;
+  padding: 20px;
+  padding-bottom: 30px;
+  border: double #cbedef;
 }
 
 .aimage {
 height:150px;
 width:250px;
+float: left;
 }
 
 .aimage img {
@@ -192,6 +255,7 @@ width:250px;
 border-bottom:1px solid #eeeeee;
 border-left:1px solid #eeeeee;
 border-right:1px solid #eeeeee;
+float: left;
 }
 
 .adetails {
