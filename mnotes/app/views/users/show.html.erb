@@ -33,10 +33,9 @@
     <b class="fquestion">Notes </b>
       <div class="hidden" id="new-n">
         <span style="margin-left:95%;" class="exit lnr lnr-cross"></span>
-        <%= form_for @note do |f| %>
+        <%= form_for([ @user, @note]) do |f| %>
         <%= f.label :note %>
         <%= f.text_field :note %>
-        <%= hidden_field_tag "user_id", @user_id %>
         <%= f.submit "submit" %>
         <% end %>
      </div>
@@ -51,7 +50,7 @@
 
   <div class="hidden" id="new-b">
 <span style="margin-left:95%;" class="exit lnr lnr-cross"></span>
-    <%= form_for @bucketlist do |f| %>
+    <%= form_for([ @user, @bucketlist]) do |f| %>
     <%= f.label :item %>
     <%= f.text_field :item %>
     <%= f.label :category %>
@@ -71,7 +70,7 @@
     <b class="fquestion">Brainstorms</b>
       <div class="hidden" id="new-bs">
         <span style="margin-left:95%;" class="exit lnr lnr-cross"></span>
-        <%= form_for @brainstorm do |f| %>
+        <%= form_for([ @user, @brainstorm]) do |f| %>
         <%= f.label :idea %>
         <%= f.text_field :idea %>
         <%= f.label :category %>
@@ -91,7 +90,8 @@
 <div id="box">
   <div class="ucontent">
     <b class="fquestion">
-      <a href="/journals/new" class="lnr lnr-bookmark"></a>
+      <%= link_to("", new_user_journal_path(current_user), class: 'lnr lnr-bookmark') %>
+
       Journal </b>
     <ul class="updates">
       <% @user.journals.each do |journal| %>

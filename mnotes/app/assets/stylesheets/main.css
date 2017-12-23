@@ -1,3 +1,61 @@
+button {
+  color:#454545;
+  background:transparent;
+  border-width:2px;
+  border-style: solid;
+  border-color: #454545;
+  position:relative;
+  margin:1em;
+  display:inline-block;
+  padding:0.5em 1em;
+  transition:all 0.3s ease-in-out;
+  text-align:center;
+}
+
+button:before, button:after {
+  content:'';
+  display:block;
+  position:absolute;
+  border-color:#454545;
+  box-sizing:border-box;
+  border-style:solid;
+  width:1em;
+  height:1em;
+  transition:all 0.3s ease-in-out
+}
+
+button:before {
+  top:-6px;
+  left:-6px;
+  border-width:2px 0 0 2px;
+  z-index:5;
+}
+
+button:after {
+  bottom:-6px;
+  right:-6px;
+  border-width:0 2px 2px 0;
+}
+
+button:hover:before, button:hover:after {
+  width:calc(100% + 12px);
+  height:calc(100% + 12px);
+  border-color:#fff;
+}
+
+button:hover {
+  color:#353535;
+  background-color:#fff;
+  border-color:#fff
+}
+
+.panel {
+  max-width:960px;
+  text-align:center;
+  position:relative;
+  margin:auto;
+}
+
 .hidden {
   display: none;
 }
@@ -14,13 +72,26 @@
     border-width: 1px;
 }
 
-input[type=text] {
+input[type=text], textarea  {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
     border-bottom: 3px double #cbedef;
+    font-size: 13px;
+}
+
+.subtitle {
+  font:bold 20px 'Space Mono', monospace;
+  line-height:22px;
+  text-transform:lowercase;
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .titles{
@@ -87,8 +158,8 @@ input[type=text] {
 }
 
 .n-links a{
-    background:black;
-    color:white;
+    background:white;
+    color:black;
     font-size:14px;
     text-decoration: none;
     margin-left:-5px;
@@ -101,7 +172,7 @@ input[type=text] {
 }
 
 .n-links a:hover{
-    background:white;
+    background:black;
     color:#cbedef;
     text-decoration: none;
 }
@@ -267,11 +338,19 @@ width:300px;
 margin:10px;
 }
 
+#solo-box {
+background:#ffffff;
+float:left !important;
+width:800px;
+margin:10px;
+padding: 10px;
+}
+
 #big {
   background:#ffffff;
   width:700px;
   margin:auto;
-  margin-top:300px;
+  margin-top:350px;
   padding: 20px;
   padding-bottom: 30px;
   border: double #cbedef;

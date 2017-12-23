@@ -1,6 +1,11 @@
+<div id="solo-box">
+  <p class="subtitle">New Entry,</p>
 <%= form_for @journal do |f| %>
-  <%= f.label :entry %>
-  <%= f.text_field :entry %>
+  <%= f.label :❝, class: 'subtitle' %>
+  <%= f.text_area :entry, rows: '30' %>
   <%= hidden_field_tag "user_id", @user_id %>
-  <%= f.submit "submit" %>
+  <div class="panel">
+  <button><%= f.submit "submit" %></button>
+  </div>
 <% end %>
+</div>

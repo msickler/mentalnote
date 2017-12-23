@@ -19,9 +19,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @user_id = @user.id
     @note = Note.new
     @bucketlist = Bucketlist.new
-    @brainstorm = Brainstorm.new 
+    @brainstorm = Brainstorm.new
   end
 
   def edit
