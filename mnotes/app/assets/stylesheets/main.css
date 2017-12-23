@@ -1,3 +1,28 @@
+.hidden {
+  display: none;
+}
+
+.mini-hr {
+    color: #ccc;
+    display: block;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 200px;
+    border-style: dotted;
+    border-width: 1px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 3px double #cbedef;
+}
+
 .titles{
     position: relative;
     top: 50%;
@@ -18,13 +43,26 @@
   text-decoration: none;
 }
 
+.lnr {
+    font-family: Linearicons-Free;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 #home-header {
-    position:fixed;
+    position:absolute;
     top: 0px;
-    background:url('https://images.unsplash.com/photo-1479981280584-037818c1297d?auto=format&fit=crop&w=1500&q=80') center no-repeat fixed;
+    background-attachment: fixed;
+    background-image: url('https://images.unsplash.com/photo-1504417900752-5e508cb87268?auto=format&fit=crop&w=1500&q=80');
     background-size:cover;
     width:100%;
-    height:200px;
+    height:250px;
     padding-top:100px;
     text-align: center;
     font:bold 6em 'Space Mono', monospace;
@@ -69,8 +107,8 @@
 }
 
 .sticky{
-      position:fixed;
-      top:195px;
+      position:absolute;
+      top:245px;
   }
 
 .tiny-button {
@@ -116,7 +154,6 @@ word-break:break-word;
 }
 
 a {
-border-bottom:1px solid #6633bb;
 color:#000000;
 text-decoration:none;
 -webkit-transition: all 0.5s ease;
@@ -220,13 +257,13 @@ margin-bottom:200px;
 margin-left:auto;
 margin-right:auto;
 margin-top:200px;
-width:810px;
+width:970px;
 }
 
 #box {
 background:#ffffff;
 float:left !important;
-width:250px;
+width:300px;
 margin:10px;
 }
 
@@ -241,20 +278,21 @@ margin:10px;
 }
 
 .aimage {
-height:150px;
-width:250px;
+height:200px;
+width:300px;
 float: left;
 }
 
 .aimage img {
-height:150px;
-width:250px;
+height:200px;
+width:300px;
 }
 
 .abox {
 border-bottom:1px solid #eeeeee;
 border-left:1px solid #eeeeee;
 border-right:1px solid #eeeeee;
+width: 100%;
 float: left;
 }
 
@@ -286,6 +324,7 @@ text-transform:none;
 }
 
 .ucontent {
+  padding: 7px;
 border-left:1px solid #eeeeee;
 border-right:1px solid #eeeeee;
 border-top:1px solid #eeeeee;
@@ -307,6 +346,7 @@ text-transform:none;
 
 .fbox {
 border-bottom:1px solid #eeeeee;
+padding: 10px;
 }
 
 .fquestion {
@@ -317,7 +357,7 @@ font-size:12px;
 font-style:normal;
 font-weight:700;
 letter-spacing:0px;
-padding:10px;
+padding:5px;
 text-decoration:none;
 text-align:justify;
 text-transform:none;

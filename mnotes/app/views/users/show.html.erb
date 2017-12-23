@@ -1,23 +1,45 @@
 <div id="box">
   <div class="aimage">
-  <img src="http://i.imgur.com/WEIyhfC.png"/>
+    <% if @user.img_url %>
+  <img src="<%= @user.img_url %>"/>
+  <% else %>
+    <img src="https://images.unsplash.com/photo-1510347626344-c74339961cc3?auto=format&fit=crop&w=723&q=80"/>
+    <% end %>
 </div>
   <div class="abox">
     <div class="adetails">
-      <b style="margin-right:5px;">Self</b> <%= @user.username %>
+      <b style="margin-right:5px;"><%= @user.username.capitalize %></b>
+      <span style="margin-left:80%;" class="lnr lnr-pencil" id="edit"></span>
     </div>
     <div class="acontent">
-      Bio: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam nisi lorem, pulvinar id, commodo feugiat, vehicula et, mauris. Aliquam mattis porta urna. Maecenas dui neque, rhoncus sed, vehicula vitae, auctor at, nisi. Aenean id massa ut lacus molestie porta. Curabitur sit amet quam id libero suscipit venenatis.
+      ❝ <%= @user.bio %> ❞
     </div>
+    <div class="hidden" id="your_id">
+      <span style="margin-left:95%;" class="exit lnr lnr-cross"></span>
+      <%= form_for @user do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+      <%= f.label :bio %>
+      <%= f.text_field :bio %>
+      <%= f.submit "Edit" %>
+      <% end %>
+   </div>
   </div>
 </div>
 
 <div id="box" style="border:1px solid #eeeeee;width:248px;">
   <div class="fbox">
-    <p class="fquestion">
-      <%= link_to "+", new_note_path, :class => 'links' %>
-      Notes
-    </p>
+    <span class="lnr lnr-pushpin" id="new-note"></span>
+    <b class="fquestion">Notes </b>
+      <div class="hidden" id="new-n">
+        <span style="margin-left:95%;" class="exit lnr lnr-cross"></span>
+        <%= form_for @note do |f| %>
+        <%= f.label :note %>
+        <%= f.text_field :note %>
+        <%= hidden_field_tag "user_id", @user_id %>
+        <%= f.submit "submit" %>
+        <% end %>
+     </div>
     <ul class="fanswer">
       <% @user.notes.each do |n| %>
       <li> <%= n.note %> </li>
@@ -25,10 +47,19 @@
     </ul>
   </div>
   <div class="fbox">
-    <p class="fquestion">
-      <%= link_to "+", new_bucketlist_path, :class => 'links' %>
-      Bucketlist
-    </p>
+    <span class="lnr lnr-car" id="new-bucketlist"></span><b class="fquestion">Bucketlist</b>
+
+  <div class="hidden" id="new-b">
+<span style="margin-left:95%;" class="exit lnr lnr-cross"></span>
+    <%= form_for @bucketlist do |f| %>
+    <%= f.label :item %>
+    <%= f.text_field :item %>
+    <%= f.label :category %>
+    <%= f.select :category, [['Travel'], ['Goal'], ['Dream'], ['Misc']] %>
+    <%= hidden_field_tag "user_id", @user_id %>
+    <%= f.submit "submit" %>
+    <% end %>
+ </div>
     <ul class="fanswer">
       <% @user.bucketlists.each do |b| %>
       <li><%= b.item %> - <%= b.category %> </li>
@@ -36,10 +67,19 @@
     </ul>
   </div>
   <div class="fbox">
-    <p class="fquestion">
-      <%= link_to "+", new_brainstorm_path, :class => 'links' %>
-      Brainstorms
-    </p>
+    <span class="lnr lnr-paperclip" id="new-brainstorm"></span>
+    <b class="fquestion">Brainstorms</b>
+      <div class="hidden" id="new-bs">
+        <span style="margin-left:95%;" class="exit lnr lnr-cross"></span>
+        <%= form_for @brainstorm do |f| %>
+        <%= f.label :idea %>
+        <%= f.text_field :idea %>
+        <%= f.label :category %>
+        <%= f.select :category, [['Entrepreneur'], ['Music'], ['Literature'], ['Cinema'], ['Cuisine'], ['Personal']] %>
+        <%= hidden_field_tag "user_id", @user_id %>
+        <%= f.submit "submit" %>
+        <% end %>
+     </div>
     <ul class="fanswer">
       <% @user.brainstorms.each do |b| %>
         <li> <%= b.idea %> - <%= b.category %> </li>
@@ -50,25 +90,27 @@
 
 <div id="box">
   <div class="ucontent">
-    <p class="fquestion"> Journal entries </p>
+    <b class="fquestion">
+      <a href="/journals/new" class="lnr lnr-bookmark"></a>
+      Journal </b>
     <ul class="updates">
       <% @user.journals.each do |journal| %>
-      <b style="margin-right:5px;"><%= journal.created_at %></b>
-       <li><%= journal.entry %></li>
+      <p style="margin-right:5px;"><b><%= journal.created_at.strftime("%m/%d/%Y") %></b></p>
+      <% if journal.entry.length > 250 %>
+    ❝ <%= truncate(journal.entry, length: 250) %> ❞
+    <br>
+    <%= link_to 'Read more', '', class: "read-more-#{journal.id}" %>
+    <script>
+      $('.read-more-<%= journal.id %>').on('click', function(e) {
+        e.preventDefault()
+        $(this).parent().html('<%= escape_javascript journal.entry %>')
+      })
+    </script>
+  <% else %>
+    ❝ <%= journal.entry %> ❞
+  <% end %>
+    <hr class="mini-hr">
        <% end %>
     </ul>
   </div>
  </div>
-
-<div id="box" style="background:transparent;">
-  <p class="ntitle">More Links</p>
-  <div class="nlinks">
-    <a href="/">Link One</a>
-    <a href="/">Link Two</a>
-    <a href="/">Link Three</a>
-    <a href="/">Link Four</a>
-    <a href="/">Link Five</a>
-    <a href="/">Link Six</a>
-    <a href="/">Link Seven</a>
-  </div>
-</div>

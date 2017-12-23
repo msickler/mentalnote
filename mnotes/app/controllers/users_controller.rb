@@ -19,6 +19,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @note = Note.new
+    @bucketlist = Bucketlist.new
+    @brainstorm = Brainstorm.new 
   end
 
   def edit
@@ -43,6 +46,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email)
+    params.require(:user).permit(:username, :email, :img_url, :bio, :note, :bucketlist, :brainstorm)
   end
 end

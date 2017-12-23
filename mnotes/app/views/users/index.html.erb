@@ -1,15 +1,19 @@
 <% @users.each do |user| %>
 <div id="box">
   <div class="aimage">
-  <img src="http://i.imgur.com/WEIyhfC.png"/>
+    <% if user.img_url %>
+  <img src="<%= user.img_url %>"/>
+  <% else %>
+    <img src="https://images.unsplash.com/photo-1510347626344-c74339961cc3?auto=format&fit=crop&w=723&q=80"/>
+    <% end %>
 </div>
   <div class="abox">
     <div class="adetails">
-      <b style="margin-right:5px;"><%= user.username %>'s</b>
+      <b style="margin-right:5px;"><%= link_to user.username.capitalize, user_path(user) %></b>
       Cloud
     </div>
     <p class="acontent">
-      Bio: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam nisi lorem, pulvinar id, commodo feugiat, vehicula et, mauris.
+      "<%= user.bio ||= 'Bio: Lorem ipsum dolor sit amet, ut sit ludus putant signiferumque. At vim nobis petentium. Mea ne ignota regione abhorreant, te detraxit perfecto recusabo nam, ad vidisse nominati sea.' %>"
     </p>
   </div>
 </div>
